@@ -1,0 +1,94 @@
+<mvc:View controllerName="capseat.AA_CapSeat.controller.Main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="Lista empleados">
+					<content>
+						<Panel expandable="true" expanded="false" headerText="Administrar empleados" width="auto" class="sapUiResponsiveMargin">
+							<content>
+								<f:Form editable="true" id="form0">
+									<f:layout>
+										<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+											emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+									</f:layout>
+									<f:title>
+										<core:Title text="Empleado"/>
+									</f:title>
+									<f:formContainers>
+										<f:FormContainer id="container0">
+											<f:formElements>
+												<f:FormElement label="Legajo" id="elemLegajo">
+													<f:fields>
+														<Input width="100%" id="inputLegajo" required="true"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="Nombre" id="elemNombre">
+													<f:fields>
+														<Input width="100%" id="inputNombre" required="true"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="Primer Apellido" id="elemApellido01">
+													<f:fields>
+														<Input width="100%" id="inputApellido01" required="true"/>
+													</f:fields>
+												</f:FormElement>
+												<f:FormElement label="Segundo Apellido" id="elemApellido02">
+													<f:fields>
+														<Input width="100%" id="inputApellido02" required="false"/>
+													</f:fields>
+												</f:FormElement>
+											</f:formElements>
+										</f:FormContainer>
+									</f:formContainers>
+								</f:Form>
+							</content>
+							<Toolbar>
+								<Button icon="sap-icon://add" text="Agregar" type="Emphasized" press="agregarEmpleado"/>
+								<Button icon="sap-icon://edit" text="Modificar" type="Default" press="actualizarEmpleado"/>
+								<Button icon="sap-icon://sys-minus" text="Borrar" type="Reject" press="confirmarBorrar"/>
+								<CheckBox text="¿Requiere aprobación?" selected="false" id="checkWF" />
+							</Toolbar>
+						</Panel>
+						<Table id="tablaEmpleados" items="{ path : '/empleados', sorter : { path : 'Pernr' } }" mode="SingleSelectLeft"
+							noDataText="Aún no hay empleados cargados">
+							<items>
+								<ColumnListItem id="itemList">
+									<cells>
+										<Text text="{Pernr}" id="Legajo"/>
+										<Text text="{Vorna}" id="Nombre"/>
+										<Text text="{Nachn}" id="Apellido01"/>
+										<Text text="{Nach2}" id="Apellido02"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							<!-- sap.m.ListItemBase -->
+							<columns>
+								<Column>
+									<header>
+										<Label text="Legajo"/>
+									</header>
+								</Column>
+								<Column>
+									<header>
+										<Label text="Nombre"/>
+									</header>
+								</Column>
+								<Column>
+									<header>
+										<Label text="Primer Apellido"/>
+									</header>
+								</Column>
+								<Column>
+									<header>
+										<Label text="Segundo Apellido"/>
+									</header>
+								</Column>
+							</columns>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

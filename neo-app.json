@@ -1,0 +1,42 @@
+{
+  "welcomeFile": "/webapp/index.html",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "Everis_Lab_Nova",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "Everis Lab Nova"
+    },
+	{
+      "path": "/bpmworkflowruntime",
+      "target": {
+        "type": "destination",
+        "name": "bpmworkflowruntime",
+        "entryPath": "/workflow-service"
+      },
+      "description": "Workflow Runtime REST API"    
+    }
+  ],
+  "sendWelcomeFileRedirect": true
+}
