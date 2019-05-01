@@ -5,7 +5,7 @@
 			<pages>
 				<Page id="page" title="Lista empleados">
 					<content>
-						<Panel expandable="true" expanded="false" headerText="Administrar empleados" width="auto" class="sapUiResponsiveMargin">
+						<Panel id="panelEdit" expandable="true" expanded="false" headerText="Administrar empleados" width="auto" class="sapUiResponsiveMargin" expand = "onModoEdicion">
 							<content>
 								<f:Form editable="true" id="form0">
 									<f:layout>
@@ -50,7 +50,7 @@
 								<CheckBox text="¿Requiere aprobación?" selected="false" id="checkWF" />
 							</Toolbar>
 						</Panel>
-						<Table id="tablaEmpleados" items="{ path : '/empleados', sorter : { path : 'Pernr' } }" mode="SingleSelectLeft"
+						<Table id="tablaEmpleados" items="{ path : '/empleados', sorter : { path : 'Pernr' } }" mode="None"
 							noDataText="Aún no hay empleados cargados">
 							<items>
 								<ColumnListItem id="itemList">

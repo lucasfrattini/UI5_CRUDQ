@@ -19,6 +19,13 @@ sap.ui.define([
 			this.getView().setModel(viewModel);
 			this.obtenerEmpleados();
 
+			sap.ui.getCore().getEventBus().subscribe(
+				//"Channel",
+				"BuscarEmp",
+				this.obtenerEmpleados,
+				this
+			);
+
 		},
 
 		obtenerEmpleados: function () {
@@ -173,6 +180,14 @@ sap.ui.define([
 
 		_refreshTask: function (taskId) {
 			this.getComponentData().startupParameters.inboxAPI.updateTask("NA", taskId);
+		},
+
+		onModoEdicion: function (oEvent) {
+			if (this.getView().byId("panelEdit").getExpanded()) {
+				this.getView().byId("tablaEmpleados").setMode("SingleSelectLeft");
+			}else{
+				this.getView().byId("tablaEmpleados").setMode("None");
+			}
 		}
 
 	});

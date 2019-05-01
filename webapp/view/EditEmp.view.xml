@@ -1,8 +1,50 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="capseat.AA_CapSeat.controller.EditEmp">
+<mvc:View xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="capseat.AA_CapSeat.controller.EditEmp">
 	<App>
 		<pages>
 			<Page title="Title" showNavButton="true" navButtonPress="onNavBack">
-				<content/>
+				<content>
+					<VBox id="formContainer" class="sapUiSmallMargin">
+						<f:Form editable="true" id="formSolpe">
+							<f:layout>
+								<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+									emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+							</f:layout>
+							<f:title>
+								<core:Title text="Legajo {/empleadoSelect/Pernr}"/>
+							</f:title>
+							<f:formContainers>
+								<f:FormContainer>
+									<f:formElements>
+										<f:FormElement label="Nombre" id="elemNombre">
+											<f:fields>
+												<Input width="100%" id="inputNombre" required="true" value="{/empleadoSelect/Vorna}"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="Primer Apellido" id="elemApellido01">
+											<f:fields>
+												<Input width="100%" id="inputApellido01" required="true" value="{/empleadoSelect/Nachn}"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="Segundo Apellido" id="elemApellido02">
+											<f:fields>
+												<Input width="100%" id="inputApellido02" required="false" value="{/empleadoSelect/Nach2}"/>
+											</f:fields>
+										</f:FormElement>
+									</f:formElements>
+								</f:FormContainer>
+							</f:formContainers>
+						</f:Form>
+					</VBox>
+				</content>
+				<footer>
+					<Bar id="botonera">
+						<contentMiddle>
+							<Button id="cancelar" text="Cancelar" press="onNavBack"/>
+							<Button id="guardar" text="Guardar" press="onGuardar"/>
+						</contentMiddle>
+					</Bar>
+				</footer>
 			</Page>
 		</pages>
 	</App>

@@ -1,7 +1,8 @@
 {
     "application": {
         "id": "",
-        "title": "Empleados",
+        "title": "capseat.AA_CapSeat.AA_CapSeat",
+        "description": "Empleados",
         "type": "SAP_UI5_Component",
         "componentUrl": "/",
         "appUrl": "#AA_CapSeat-Display",
@@ -16,16 +17,16 @@
             "5df8b5ce-4525-4e86-9e7c-c8c4df2f37dd"
         ],
         "contentPackages": [
-            "00000000-0000-2222-0000-00000000"
+            "0dddf783-186f-433b-abc4-081de3744c02"
         ],
         "categories": []
     },
     "tile": {
         "type": "StaticTile",
-        "title": "Administrar Empleados",
-        "subtitle": "",
-        "searchKeywords": "Administrar Empleados,",
-        "displayIconUrl": "sap-icon://account",
+        "title": "Empleados",
+        "subtitle": "Subtitle",
+        "searchKeywords": "Empleados,Subtitle",
+        "displayIconUrl": "sap-icon://approvals",
         "displayInfoText": "",
         "size": "1x1",
         "serviceURL": "",

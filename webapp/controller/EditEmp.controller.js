@@ -14,14 +14,37 @@ sap.ui.define([
 		onInit: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("EditEmp").attachPatternMatched(this._onObjectMatcher, this);
+
+			var viewModel = new sap.ui.model.json.JSONModel({
+				empleadoSelect: []
+			});
+
+			this.getView().setModel(viewModel);
+
 		},
-		
+
 		_onObjectMatcher: function (oEvent) {
 			var pernr = oEvent.getParameter("arguments").pernr;
-			var empleados = sap.ui.getCore().getModel("empleados").oData;
-			console.log(empleados);
+			this.buscarEmpleado(pernr);
 		},
-		
+
+		buscarEmpleado: function (pernr) {
+			var oModel = sap.ui.getCore().getModel("empleados");
+			var self = this;
+
+			oModel.read("/ZCAP_SEATSet(Pernr='" + pernr + "')", {
+				success: function (oData) {
+					self.getView().getModel().setProperty("/empleadoSelect", oData);
+					console.log(oData);
+				},
+
+				error: function (e) {
+					self.getView().byId("formContainer").setBusy(false);
+					sap.m.MessageToast.show('Ha ocurrido un error al obtener el empleado');
+				}
+			});
+		},
+
 		onNavBack: function () {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
@@ -32,6 +55,34 @@ sap.ui.define([
 				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 				oRouter.navTo("Main", true);
 			}
+		},
+
+		onGuardar: function () {
+			var oModel = sap.ui.getCore().getModel("empleados");
+			var self = this;
+
+			var oEntry = {};
+			oEntry = this.getView().getModel().getData().empleadoSelect;
+
+			var self = this;
+
+			oModel.update("/ZCAP_SEATSet(Pernr='" + oEntry.Pernr + "')", oEntry, {
+				method: "PUT",
+				success: function (data) {
+					sap.m.MessageToast.show('Empleado modificado con éxito');
+					self.onNavBack();
+				},
+				error: function (e) {
+					var response = JSON.parse(e.responseText);
+					// sap.m.MessageToast.show(response.error.message.value);
+					sap.m.MessageToast.show("Error al modificar el empleado");
+				}
+			});
+
+			sap.ui.getCore().getEventBus().publish(
+				//"Channel",
+				"BuscarEmp"
+			);
 		}
 
 		/**
