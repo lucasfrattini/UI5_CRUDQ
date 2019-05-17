@@ -149,10 +149,14 @@ sap.ui.define([
 				data: JSON.stringify({
 					definitionId: "wfempleados",
 					context: {
-						pernr: oEntry.Pernr,
-						nombre: oEntry.Vorna,
-						apellido01: oEntry.Nachn,
-						apellido02: oEntry.Nach2
+						ZCAP_SEAT: {
+							input: {},
+							output: {},
+							pernr: oEntry.Pernr,
+							nombre: oEntry.Vorna,
+							apellido01: oEntry.Nachn,
+							apellido02: oEntry.Nach2
+						}
 					}
 				}),
 				success: function (result, xhr, data) {
@@ -185,7 +189,7 @@ sap.ui.define([
 		onModoEdicion: function (oEvent) {
 			if (this.getView().byId("panelEdit").getExpanded()) {
 				this.getView().byId("tablaEmpleados").setMode("SingleSelectLeft");
-			}else{
+			} else {
 				this.getView().byId("tablaEmpleados").setMode("None");
 			}
 		}

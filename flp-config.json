@@ -2,7 +2,7 @@
     "application": {
         "id": "",
         "title": "capseat.AA_CapSeat.AA_CapSeat",
-        "description": "Empleados",
+        "description": "Admin empleados",
         "type": "SAP_UI5_Component",
         "componentUrl": "/",
         "appUrl": "#AA_CapSeat-Display",
@@ -22,14 +22,15 @@
         "categories": []
     },
     "tile": {
-        "type": "StaticTile",
-        "title": "Empleados",
-        "subtitle": "Subtitle",
-        "searchKeywords": "Empleados,Subtitle",
-        "displayIconUrl": "sap-icon://approvals",
+        "type": "DynamicTile",
+        "title": "Admin Empleados",
+        "subtitle": "Empleados",
+        "searchKeywords": "Admin Empleados,Empleados",
+        "displayIconUrl": "sap-icon://family-care",
         "displayInfoText": "",
         "size": "1x1",
-        "serviceURL": "",
-        "refreshInterval": ""
+        "serviceURL": "/sap/fiori/aacapseat/sap/opu/odata/sap/ZLFL_ODATA_SRV/ZCAP_SEATSet/$count",
+        "refreshInterval": 10,
+        "displayNumberUnit": "Emp"
     }
 }
