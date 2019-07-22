@@ -81,6 +81,10 @@
 			"css": [
 				{
 					"uri": "css/style.css"
+				},
+				{
+					"uri": "css/font-awesome.min.css",
+					"id": ""
 				}
 			]
 		},

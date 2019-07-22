@@ -1,11 +1,11 @@
 <mvc:View controllerName="capseat.AA_CapSeat.controller.Main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
 	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
 	<Shell id="shell">
-		<App id="app">
+		<App id="app" class="homePage homeLayout">
 			<pages>
-				<Page id="page" title="Lista empleados">
+				<Page id="homePage" title="Lista empleados" showHeader="false">
 					<content>
-						<Panel id="panelEdit" expandable="true" expanded="false" headerText="Administrar empleados" width="auto" class="sapUiResponsiveMargin" expand = "onModoEdicion">
+						<Panel id="panelEdit" expandable="true" expanded="false" headerText="Administrar empleados" width="auto" class="panelEdit sapUiResponsiveMargin" expand = "onModoEdicion">
 							<content>
 								<f:Form editable="true" id="form0">
 									<f:layout>
@@ -44,9 +44,10 @@
 								</f:Form>
 							</content>
 							<Toolbar>
-								<Button icon="sap-icon://add" text="Agregar" type="Emphasized" press="agregarEmpleado"/>
-								<Button icon="sap-icon://edit" text="Modificar" type="Default" press="actualizarEmpleado"/>
-								<Button icon="sap-icon://sys-minus" text="Borrar" type="Reject" press="confirmarBorrar"/>
+								<Button icon="sap-icon://add" text="Agregar" press="agregarEmpleado" class="create_btn"/>
+								<Button icon="sap-icon://edit" text="Modificar" press="actualizarEmpleado" class="edit_btn"/>
+								<Button icon="sap-icon://sys-minus" text="Borrar" press="confirmarBorrar" class="del_btn"/>
+								
 								<CheckBox text="¿Requiere aprobación?" selected="false" id="checkWF" />
 							</Toolbar>
 						</Panel>

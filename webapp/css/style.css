@@ -1,1 +1,92 @@
 /* Enter your custom styles here */
+/* TYPO */
+@font-face {
+    font-family: 'DINProRegular';
+    src: url('../fonts/DINPro/DINPro-Regular.eot?#iefix') format('embedded-opentype'), 
+        url('../fonts/DINPro/DINPro-Regular.woff') format('woff'), 
+        url('../fonts/DINPro/DINPro-Regular.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: 'DINProLight';
+    src: url('../fonts/DINPro/DINPro-Light.eot?#iefix') format('embedded-opentype'), 
+        url('../fonts/DINPro/DINPro-Light.woff') format('woff'), 
+        url('../fonts/DINPro/DINPro-Light.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: 'DINProBold';
+    src: url('../fonts/DINPro/DINPro-Bold.eot?#iefix') format('embedded-opentype'), 
+        url('../fonts/DINPro/DINPro-Bold.woff') format('woff'), 
+        url('../fonts/DINPro/DINPro-Bold.ttf')  format('truetype');
+}
+
+/* COMMON*/
+*{
+	outline: none !important;	
+}
+
+.sapUiBody {
+	/*background-color: #659DBD !important;*/
+    font-family: DINProRegular !important;
+}
+
+.sapMPageEnableScrolling{
+	/*background-color: #659DBD !important;*/
+}
+
+/* HOME */
+.homePage{
+	background-color: #F5F5F5 !important;
+}
+
+.homeLayout{
+	height: 100%;
+}
+
+.homeLayout > div:first-child {
+	text-align: center;
+}
+
+.sapMTitle{
+	font-family: DINProBold !important;
+	color:#fff;
+}
+
+/* PANEL */
+
+.panelEdit, .sapMPanelHdr, .sapUiFormTitle {
+	/*color:#fff !important;*/
+	font-family: DINProRegular !important;
+}
+
+button .sapMBtnDefault  {
+	background-color: #658cbd !important ;
+	color: #ffffff;
+	border: 0 important;
+}
+.create_btn .sapMBtnCustomIcon:before{
+	font-family: 'FontAwesome';
+	color: #FFF !important;
+	font-size: 26px !important;
+	content: "\f234";
+}
+
+.edit_btn .sapMBtnCustomIcon:before{
+	font-family: 'FontAwesome';
+	color: #FFF !important;
+	font-size: 26px !important;
+	content: "\f14b";
+}
+
+.del_btn .sapMBtnCustomIcon:before{
+	font-family: 'FontAwesome';
+	color: #FFF !important;
+	font-size: 26px !important;
+	content: "\f1f8";
+}
+
+/* TABLA */
+table .sapMLabel {
+	font-family: DINProBold !important;
+}
